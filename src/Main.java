@@ -5,9 +5,11 @@ public class Main {
        // getLengthOfStrings(new String[]{"this", "and", "that", "and"});
         //createMap(new String[]{"man", "moon", "good", "night"});
         //countWords(new String[]{"c", "c", "c", "c"});
-        String[] strings = {"aa", "bb", "cc", "aAA", "cCC", "d"};
-         Map<String, String> result = mergeStringsByFirstChar(strings);
-        System.out.println(result);
+//        String[] strings = {"aa", "bb", "cc", "aAA", "cCC", "d"};
+//         Map<String, String> result = mergeStringsByFirstChar(strings);
+//        System.out.println(result);
+        System.out.println(buildResultString(new String[]{"a", "b", "a", "c", "a", "d", "a"}));
+
 
 
     }
@@ -59,4 +61,24 @@ public class Main {
         }
         return map;
     }
+
+    //Task5
+    public static String buildResultString(String[] array) {
+        StringBuilder builder = new StringBuilder();
+        Map<String, Integer> map = new HashMap<>();
+        // Рахуємо кількість входжень кожного рядка
+        for (String key : array) {
+            map.put(key, map.getOrDefault(key, 0) + 1);
+        }
+        for (String str : array) {
+            // Додавання рядків до результату, якщо їх кількість парна
+            if (map.get(str) % 2 == 0 && builder.indexOf(str) == -1) {
+                builder.append(str);
+            }
+        }
+        return builder.length() > 0 ? builder.toString() : "";
+    }
 }
+
+
+
