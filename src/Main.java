@@ -4,7 +4,10 @@ public class Main {
     public static void main(String[] args) {
        // getLengthOfStrings(new String[]{"this", "and", "that", "and"});
         //createMap(new String[]{"man", "moon", "good", "night"});
-        countWords(new String[]{"c", "c", "c", "c"});
+        //countWords(new String[]{"c", "c", "c", "c"});
+        String[] strings = {"aa", "bb", "cc", "aAA", "cCC", "d"};
+         Map<String, String> result = mergeStringsByFirstChar(strings);
+        System.out.println(result);
 
 
     }
@@ -41,4 +44,19 @@ public class Main {
         System.out.println(map);
     }
 
+    //Task 4
+    public static Map<String,String> mergeStringsByFirstChar(String[] array) {
+        Map<String, String> map = new HashMap<>();
+        for (String key : array) {
+            char ch = key.charAt(0);
+            String str = String.valueOf(ch);
+            if (map.containsKey(str)) {
+                map.put(str, map.get(str) + key);
+            }
+            else {
+                map.put(str, key);
+            }
+        }
+        return map;
+    }
 }
