@@ -8,9 +8,9 @@ public class Main {
 //        String[] strings = {"aa", "bb", "cc", "aAA", "cCC", "d"};
 //         Map<String, String> result = mergeStringsByFirstChar(strings);
 //        System.out.println(result);
-        System.out.println(buildResultString(new String[]{"a", "b", "a", "c", "a", "d", "a"}));
-
-
+//        System.out.println(buildResultString(new String[]{"a", "b", "a", "c", "a", "d", "a"}));
+        List<Integer> myList = List.of(3, 1, 2, 3, 3, 3, 2, 3, 3);
+        System.out.println("Найчастіше зустрічається елемент: " + ListElements(myList));
 
     }
     //Task 1
@@ -77,6 +77,25 @@ public class Main {
             }
         }
         return builder.length() > 0 ? builder.toString() : "";
+    }
+
+    //Task 6
+    public static Integer ListElements(List<Integer> list) {
+        Map<Integer, Integer> map = new HashMap<>();
+        // Перебір списку
+        for (Integer num : list) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
+        // Пошук елемента з максимальною кількістю повторень
+        int count = 0;
+        Integer frequentElement = 0;
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+            if (entry.getValue() > count) {
+                count = entry.getValue();
+                frequentElement = entry.getKey();
+            }
+        }
+        return frequentElement;
     }
 }
 
