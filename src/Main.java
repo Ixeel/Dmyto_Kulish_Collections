@@ -2,12 +2,12 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-       // getLengthOfStrings(new String[]{"this", "and", "that", "and"});
-        //createMap(new String[]{"man", "moon", "good", "night"});
-        //countWords(new String[]{"c", "c", "c", "c"});
+//       getLengthOfStrings(new String[]{"this", "and", "that", "and"});
+//        createMap(new String[]{"man", "moon", "good", "night"});
+//       countWords(new String[]{"c", "c", "c", "c"});
 //        String[] strings = {"aa", "bb", "cc", "aAA", "cCC", "d"};
-//         Map<String, String> result = mergeStringsByFirstChar(strings);
-//        System.out.println(result);
+//    Map<String, String> result = mergeStringsByFirstChar(strings);
+//       System.out.println(result);
 //        System.out.println(buildResultString(new String[]{"a", "b", "a", "c", "a", "d", "a"}));
         List<Integer> myList = List.of(3, 1, 2, 3, 3, 3, 2, 3, 3);
         System.out.println("Найчастіше зустрічається елемент: " + ListElements(myList));
@@ -36,12 +36,7 @@ public class Main {
     public static void countWords(String[] array) {
         Map<String, Integer> map = new HashMap<>();
         for (String key : array) {
-            if(map.containsKey(key)){
-                map.put(key, map.get(key)+1);
-            }
-            else{
-                map.put(key, 1);
-            }
+            map.put(key, map.getOrDefault(key, 0) + 1);
         }
         System.out.println(map);
     }
@@ -52,12 +47,7 @@ public class Main {
         for (String key : array) {
             char ch = key.charAt(0);
             String str = String.valueOf(ch);
-            if (map.containsKey(str)) {
-                map.put(str, map.get(str) + key);
-            }
-            else {
-                map.put(str, key);
-            }
+            map.put(str, map.getOrDefault(str, "") + key);
         }
         return map;
     }
