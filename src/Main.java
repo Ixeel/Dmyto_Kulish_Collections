@@ -12,10 +12,13 @@ public class Main {
 //        List<Integer> myList = List.of(3, 1, 2, 3, 3, 3, 2, 3, 3);
 //        System.out.println("Найчастіше зустрічається елемент: " + ListElements(myList));
 
-        LinkedHashSet<Integer> set = new LinkedHashSet<>();
-        LinkedHashSet<Integer> set2 = new LinkedHashSet<>();
-        System.out.println(LinkedHashSet(set,set2));
+//        LinkedHashSet<Integer> set = new LinkedHashSet<>();
+//        LinkedHashSet<Integer> set2 = new LinkedHashSet<>();
+//        System.out.println(LinkedHashSet(set, set2));
+
+       TreeSet();
     }
+
     //Task 1
     public static void getLengthOfStrings(String[] array) {
         Map<String, Integer> map = new HashMap<>();
@@ -30,11 +33,12 @@ public class Main {
         Map<Character, Character> map = new HashMap<>();
         for (String key : array) {
             char ch = key.charAt(0);
-            char ch2 = key.charAt(key.length()-1);
+            char ch2 = key.charAt(key.length() - 1);
             map.put(ch, ch2);
         }
         System.out.println(map);
     }
+
     //Task 3
     public static void countWords(String[] array) {
         Map<String, Integer> map = new HashMap<>();
@@ -45,7 +49,7 @@ public class Main {
     }
 
     //Task 4
-    public static Map<String,String> mergeStringsByFirstChar(String[] array) {
+    public static Map<String, String> mergeStringsByFirstChar(String[] array) {
         Map<String, String> map = new HashMap<>();
         for (String key : array) {
             char ch = key.charAt(0);
@@ -110,6 +114,25 @@ public class Main {
             }
         }
         return false;
+    }
+
+    //Task 8
+    public static void TreeSet() {
+        TreeSet<Integer> set = new TreeSet<>();
+        TreeSet<Integer> set2 = new TreeSet<>();
+        TreeSet<Integer> set3 = new TreeSet<>();
+
+        set.add(1);
+        set.add(2);
+        set.add(3);
+
+        set2.add(3);
+        set2.add(4);
+        set2.add(5);
+
+        set3.addAll(set);
+        set3.addAll(set2);
+        System.out.println(set3);
     }
 }
 
