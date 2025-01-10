@@ -9,9 +9,12 @@ public class Main {
 //    Map<String, String> result = mergeStringsByFirstChar(strings);
 //       System.out.println(result);
 //        System.out.println(buildResultString(new String[]{"a", "b", "a", "c", "a", "d", "a"}));
-        List<Integer> myList = List.of(3, 1, 2, 3, 3, 3, 2, 3, 3);
-        System.out.println("Найчастіше зустрічається елемент: " + ListElements(myList));
+//        List<Integer> myList = List.of(3, 1, 2, 3, 3, 3, 2, 3, 3);
+//        System.out.println("Найчастіше зустрічається елемент: " + ListElements(myList));
 
+        LinkedHashSet<Integer> set = new LinkedHashSet<>();
+        LinkedHashSet<Integer> set2 = new LinkedHashSet<>();
+        System.out.println(LinkedHashSet(set,set2));
     }
     //Task 1
     public static void getLengthOfStrings(String[] array) {
@@ -86,6 +89,27 @@ public class Main {
             }
         }
         return frequentElement;
+    }
+
+    //Task 7
+    public static boolean LinkedHashSet(LinkedHashSet<Integer> set, LinkedHashSet<Integer> set2) {
+        set.add(1);
+        set.add(2);
+        set.add(3);
+        set.add(4);
+
+        set2.add(3);
+        set2.add(5);
+        set2.add(6);
+
+        for (Integer number : set) {
+            for (Integer number2 : set2) {
+                if (Objects.equals(number2, number)) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }
 
